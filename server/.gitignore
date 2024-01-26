@@ -1,0 +1,24 @@
+# Node.js
+node_modules/
+
+# Dependency directories
+/*/node_modules/
+/.pnp/
+.pnp.js
+
+# Testing
+/coverage/
+
+# Production build
+/build/
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Environment variables
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,143 @@
+body{
+    background-color: #17003E;
+}
+.home_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.files_container{
+display: flex;
+justify-content: space-between;
+}
+.files_here{
+display: flex;
+
+}
+.images_here{
+display: flex;
+flex-direction: column;
+}
+.vidos_here{
+display: flex;
+flex-direction: column;
+margin-left: 20px;
+}
+.form_heading{
+    color: #fff;
+   font-family: sans-serif;
+}
+.file_form{
+ 
+    display: flex;
+    flex-flow: column;
+}
+.file_form input {
+    padding: 8px;
+    font-size: 14px;
+    background-color: #F6F6F6;
+    border: 2px solid #2C0040;
+    border-radius: 8px;
+    outline: none;
+}
+/*  */
+.fileform_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  }
+  
+  .file-label {
+    display: inline-block;
+    width: 300px;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  /* .selectdfile_name{
+
+  } */
+  .file-label span {
+    display: block;
+    color: #fff;
+  }
+  
+  .file-label img {
+    width: 40px;
+  }
+  
+  input[type='file'] {
+    display: none;
+  }
+
+  /*  */
+/* input#file {
+    display: flex;
+    width: 100%;
+    padding: 120px 0 0 0;
+    height: 100px;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* background: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698394-icon-130-cloud-upload-512.png') center center no-repeat #e4e4e4; */
+    /* border-radius: 20px;
+    background-size: 60px 60px;
+    text-align: center; */
+  /* } */ 
+  ::-webkit-file-upload-button {
+    display: none;
+ }
+
+.uploadimg_btn{
+    background-color: #5D00FF;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 8px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+.submitimg_btn {
+    background-color: #00BA13;
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0, 0.2);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    margin-top: 12px; 
+    cursor: pointer;
+}
+.submitvid_btn{
+    background-color: #00BA13;
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0, 0.2);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    margin-top: 12px; 
+    cursor: pointer;
+}
+.uploadvid_btn{
+    background-color: #5D00FF;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 8px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-left: 8px;
+}
