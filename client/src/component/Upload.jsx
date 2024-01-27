@@ -53,7 +53,11 @@ const Upload = () => {
         tags: "",
         imageFile: null || ""
       });
-      setSelectedFile(null)
+      setSelectedFile(null);
+      setTimeout(() => {
+        window.location.reload()
+      }, 6000)
+   
     } catch (error) {
       console.error(error);
       toast.error(error.message);
@@ -66,7 +70,7 @@ const Upload = () => {
   return (
     <>
     <div className="fileform_container">
-      <h1>Image Upload</h1>
+      <h1 className="form_heading">Image Upload</h1>
       <form
         onSubmit={handleSubmit}
         encType="multipart/form-data"

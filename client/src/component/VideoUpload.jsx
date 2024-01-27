@@ -52,7 +52,11 @@ const [isUploading, setIsUploading] = useState(false);
             tags: "",
             imageFile: null || ""
           });
-          setSelectedFile(null)
+          setSelectedFile(null);
+          setTimeout(() => {
+            window.location.reload()
+          }, 6000)
+       
         } catch (error) {
           console.error(error);
           toast.error(error.message);
