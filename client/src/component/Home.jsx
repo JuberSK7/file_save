@@ -72,7 +72,7 @@ const Home = () => {
             <div className="images_here">
               <h3 className="file_category">Your Images</h3>
               {images.length <= 0 ? (
-                <p>No Image Available</p>
+                <p className="file_notfound">No Image Available</p>
               ) : (
                 images.map((image) => (
                   <div className="image_box">
@@ -88,7 +88,15 @@ const Home = () => {
                     >
                       <i class="fa-solid fa-trash"></i>
                     </p>
-                    {/* <a href={image.imageUrl} download={image.imageUrl}>Download</a> */}
+                    {/* <a
+        href={image.imageUrl}
+        download={`image_${image._id}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <button>Download </button>
+      </a>
+                    <a href={image.imageUrl} download={image.imageUrl}>Download</a> */}
                   </div>
                 ))
               )}
@@ -97,7 +105,7 @@ const Home = () => {
             <div className="vidos_here">
               <h3 className="file_category">Your Videos</h3>
               {videos.length <= 0 ? (
-                <p>No Videos Available</p>
+                <p className="file_notfound">No Videos Available</p>
               ) : (
                 videos.map((video) => (
                   <div className="video_box">

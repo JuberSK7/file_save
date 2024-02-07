@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   background-color: #17003e;
 }
@@ -36,6 +41,7 @@ body {
 .form_heading {
   color: #fff;
   font-family: sans-serif;
+  margin-bottom: 8px;
 }
 .file_form {
   display: flex;
@@ -55,6 +61,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 12px;
 }
 
 .file-label {
@@ -75,12 +82,12 @@ body {
 }
 .delet_icon_video {
   position: absolute;
-  top: 30px;
+  top: 40px;
   right: 10px;
 }
 .delet_icon {
   position: absolute;
-  bottom: 0;
+  bottom: 14px;
   right: 10px;
 }
 
@@ -152,4 +159,19 @@ input[type="file"] {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   margin-left: 8px;
+}
+.file_notfound{
+  color: #fff;
+  font-family: serif;
+}
+
+@media only screen and (max-width: 600px){
+
+.files_here{
+  flex-direction: column;
+  gap: 20px;
+}
+.vidos_here{
+margin-left: 0;
+}
 }
