@@ -50,10 +50,53 @@ const Home = () => {
       });
   };
 
+  const handleDownload = async (mediaUrl, mediaType) => {
+    try {
+      const response = await fetch(mediaUrl);
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+
+        let filename = "file";
+
+        if (mediaType === "image") {
+          if (/\.(jpg|jpeg|png)$/i.test(mediaUrl)) {
+            filename += ".jpg";
+          } else {
+            console.error("Unsupported image format");
+            return;
+          }
+        } else if (mediaType === "video") {
+          if (/\.(mp4|mov)$/i.test(mediaUrl)) {
+            filename += ".mp4";
+          } else {
+            console.error("Unsupported video format");
+            return;
+          }
+        } else {
+          console.error("Unsupported media type");
+          return;
+        }
+
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      } else {
+        console.error(`${mediaType} download failed`);
+      }
+    } catch (error) {
+      console.error(`Error downloading ${mediaType}:`, error);
+    }
+  };
+
   useEffect(() => {
     fetchFiles();
   }, []);
-  console.log("images", images);
+  console.log("images", videos);
   return (
     <>
       <div className="home_container">
@@ -79,24 +122,20 @@ const Home = () => {
                     <img
                       src={image.imageUrl}
                       width="300"
-                      height="220"
+                      height="196"
                       alt="imgUrl"
+                      className="image_file"
                     />
-                    <p
-                      className="delet_icon"
-                      onClick={() => handleDeleteFile(image._id)}
-                    >
-                      <i class="fa-solid fa-trash"></i>
-                    </p>
-                    {/* <a
-        href={image.imageUrl}
-        download={`image_${image._id}`}
-        target="_blank"
-        rel="noreferrer"
-      >
-        <button>Download </button>
-      </a>
-                    <a href={image.imageUrl} download={image.imageUrl}>Download</a> */}
+                    <div className="delet_icon">
+                      <span
+                        onClick={() => handleDownload(image.imageUrl, "image")}
+                      >
+                        <i class="fa-solid fa-download"></i>
+                      </span>
+                      <span onClick={() => handleDeleteFile(image._id)}>
+                        <i class="fa-solid fa-trash"></i>
+                      </span>
+                    </div>
                   </div>
                 ))
               )}
@@ -115,12 +154,16 @@ const Home = () => {
                       height="220"
                       controls
                     ></video>
-                    <p
-                      className="delet_icon_video"
-                      onClick={() => handleDeleteFile(video._id)}
-                    >
-                      <i class="fa-solid fa-trash"></i>
-                    </p>
+                    <div className="delet_icon_video">
+                        <span
+                        onClick={() => handleDownload(video.imageUrl, "video")}
+                      >
+                        <i class="fa-solid fa-download"></i>
+                      </span>
+                      <span onClick={() => handleDeleteFile(video._id)}>
+                        <i class="fa-solid fa-trash"></i>
+                      </span>
+                    </div>
                   </div>
                 ))
               )}

@@ -21,17 +21,37 @@ body {
 .files_here {
   display: flex;
   justify-content: space-around;
- 
+  margin-bottom: 20px;
+
 }
 .fa-trash {
   width: 20px;
   height: 20px;
   color: red;
   cursor: pointer;
+  padding: 6px;
+}
+.fa-download{
+ color: #fff;
+ background-color: #17003e;
+ border-radius: 50%;
+ width: 20px;
+ height: 20px;
+ cursor: pointer;
+ padding: 6px;
+}
+.fa-download:hover{
+  background-color: #00ba13;
+  color:#17003e;
+  border-radius: 50%;
+  padding: 6px;
+  border: 1px solid #17003e;
+  
 }
 .images_here {
   display: flex;
   flex-direction: column;
+ 
 }
 .vidos_here {
   display: flex;
@@ -55,7 +75,7 @@ body {
   border-radius: 8px;
   outline: none;
 }
-/*  */
+
 .fileform_container {
   display: flex;
   align-items: center;
@@ -63,6 +83,7 @@ body {
   flex-direction: column;
   margin-top: 12px;
 }
+
 
 .file-label {
   display: inline-block;
@@ -77,6 +98,9 @@ body {
 .image_box {
   position: relative;
 }
+.image_file{
+  margin-top: 25px;
+}
 .video_box {
   position: relative;
 }
@@ -89,6 +113,9 @@ body {
   position: absolute;
   bottom: 14px;
   right: 10px;
+ display: flex;
+ flex-direction: column;
+
 }
 
 .file-label span {
@@ -135,6 +162,17 @@ input[type="file"] {
   font-weight: 800;
   margin-top: 12px;
   cursor: pointer;
+}
+.uploading_btn{
+  background-color: #FACC03;
+  padding: 8px;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  margin-top: 12px;
 }
 .submitvid_btn {
   background-color: #00ba13;

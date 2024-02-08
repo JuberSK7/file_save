@@ -122,7 +122,7 @@ const Upload = () => {
             onChange={handleFileChange}
           />
         </div>
-        <button type="submit" className="submitimg_btn" disabled={isUploading}>
+        <button type="submit"  className={isUploading ? 'uploading_btn' : 'submitimg_btn' } disabled={isUploading}>
           {
             isUploading ? "Uploading..." : "Upload Image File"
           }
