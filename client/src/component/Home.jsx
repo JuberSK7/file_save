@@ -6,11 +6,11 @@ import { toast } from "react-toastify";
 
 const Home = () => {
   const [file, setFile] = useState([]);
-  const [fileForm, setFileForm] = useState(true);
-
+  const [fileForm, setFileForm] = useState('image');
+ 
   const fetchFiles = () => {
     axios
-      .get("http://localhost:8080/api/v1/upload/getuploadedimage")
+      .get(`http://localhost:8080/api/v1/upload/getuploadedimage`)
       .then((response) => {
         setFile(response.data.data);
       })
@@ -19,6 +19,9 @@ const Home = () => {
       });
   };
 
+  const showOpenForm = (type) => {
+    setFileForm(type)
+  }
   const images = file.filter(
     (fil) =>
       fil.imageUrl?.substr(fil.imageUrl.length - 3) == "jpg" ||
@@ -31,9 +34,7 @@ const Home = () => {
       fil.imageUrl?.substr(fil.imageUrl.length - 3) == "mov"
   );
 
-  const openFileForm = () => {
-    setFileForm(!fileForm);
-  };
+
 
   const handleDeleteFile = (fileId) => {
     axios
@@ -96,18 +97,20 @@ const Home = () => {
   useEffect(() => {
     fetchFiles();
   }, []);
-  console.log("images", videos);
+
+
   return (
     <>
       <div className="home_container">
         <div className="form_container">
-          <button onClick={openFileForm} className="uploadimg_btn">
+          <button onClick={() => showOpenForm('image')} className="uploadimg_btn">
             Upload Image <i class="fa-regular fa-image"></i>
           </button>
-          <button onClick={openFileForm} className="uploadvid_btn">
+          <button onClick={() => showOpenForm('video')} className="uploadvid_btn">
             Upload Video <i class="fa-solid fa-video"></i>
           </button>
-          {fileForm ? <Upload /> : <VideoUpload />}
+          {fileForm == 'image' && <Upload /> }
+          {fileForm == 'video' && <VideoUpload/>}
         </div>
 
         <div className="files_container">
@@ -155,7 +158,7 @@ const Home = () => {
                       controls
                     ></video>
                     <div className="delet_icon_video">
-                        <span
+                      <span
                         onClick={() => handleDownload(video.imageUrl, "video")}
                       >
                         <i class="fa-solid fa-download"></i>
